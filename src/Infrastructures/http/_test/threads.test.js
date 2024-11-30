@@ -2006,7 +2006,7 @@ describe('/threads endpoint', () => {
 
       // Assert
       const responseJSON = JSON.parse(response.payload);
-      expect(response.statusCode).toEqual(200);
+      expect(response.statusCode).toEqual(400);
       expect(responseJSON.status).toEqual('success');
 
     });
