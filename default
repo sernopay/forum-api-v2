@@ -48,21 +48,7 @@ server {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
                 # try_files $uri $uri/ =404;
-           proxy_pass http://localhost:5000; # your app's port
-           proxy_http_version 1.1;
-           proxy_set_header Upgrade $http_upgrade;
-           proxy_set_header Connection 'upgrade';
-           proxy_set_header Host $host;
-           proxy_cache_bypass $http_upgrade;
-
-           limit_req zone=one;
-        }
-
-        location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                # try_files $uri $uri/ =404;
-           proxy_pass http://localhost:5000; # your app's port
+           proxy_pass http://localhost:5000/threads; # your app's port
            proxy_http_version 1.1;
            proxy_set_header Upgrade $http_upgrade;
            proxy_set_header Connection 'upgrade';
@@ -148,8 +134,5 @@ server {
 
         server_name chatty-dryers-stay-noisily.a276.dcdg.xyz www.chatty-dryers-stay-noisily.a276.dcdg.xyz;
     return 404; # managed by Certbot
-
-
-
 
 }
